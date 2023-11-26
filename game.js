@@ -12,7 +12,7 @@ function getComputerChoice(){
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "rock"){
-        results.textContent = 'You tie! Rock equals rock.';
+        results.textContent = 'We tie! Rock equals rock.';
     }
     else if (playerSelection === "rock" && computerSelection === "paper"){
         results.textContent = "You lose! Paper beats Rock!";
@@ -27,7 +27,7 @@ function playRound(playerSelection, computerSelection) {
       playerScore++;
     }
     else if (playerSelection === "paper" && computerSelection === "paper"){
-      results.textContent = "You tie! Paper equals paper!";
+      results.textContent = "We tie! Paper equals paper!";
     }
     else if (playerSelection === "paper" && computerSelection === "scissors"){
       results.textContent = "You lose! Scissors beats paper!";
@@ -42,7 +42,7 @@ function playRound(playerSelection, computerSelection) {
       playerScore++;
     }
     else if (playerSelection === "scissors" && computerSelection === "scissors"){
-      results.textContent = "You tie! Scissors equals scissors!";
+      results.textContent = "We tie! Scissors equals scissors!";
     }
   }
 
