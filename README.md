@@ -1,2 +1,2 @@
 # odin-rock-paper-scissors
-Rock Paper Scissors game.
+An interactice Rock Paper Scissors game with a UI.

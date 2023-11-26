@@ -2,52 +2,85 @@ function getComputerChoice(){
     const randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
       case 0:
-        return 'Rock';
+        return 'rock';
       case 1:
-        return 'Paper';
+        return 'paper';
       case 2:
-        return 'Scissors';
+        return 'scissors';
     }
 }
 
-function playRound(PlayerSelection, ComputerSelection) {
-    let playerSelection = PlayerSelection.toLowerCase();
-    let computerSelection = ComputerSelection.toLowerCase();
+function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "rock"){
-        return "You tie! Rock equals Rock!";
+        results.textContent = 'You tie! Rock equals rock.';
     }
     else if (playerSelection === "rock" && computerSelection === "paper"){
-        return "You lose! Paper beats Rock!";
+        results.textContent = "You lose! Paper beats Rock!";
+        computerScore++;
     }
     else if (playerSelection === "rock" && computerSelection === "scissors"){
-        return "You win! Rock beats Scissors!";
+        results.textContent = "You win! Rock beats Scissors!";
+        playerScore++;
     }
     else if (playerSelection === "paper" && computerSelection === "rock"){
-        return "You win! Paper beats Rock!";
+      results.textContent = "You win! Paper beats rock!";
+      playerScore++;
     }
     else if (playerSelection === "paper" && computerSelection === "paper"){
-        return "You tie! Paper equals Paper!";
+      results.textContent = "You tie! Paper equals paper!";
     }
     else if (playerSelection === "paper" && computerSelection === "scissors"){
-        return "You lose! Scissors beats Paper!";
+      results.textContent = "You lose! Scissors beats paper!";
+      computerScore++;
     }
     else if (playerSelection === "scissors" && computerSelection === "rock"){
-        return "You lose! Rock beats Scissors!";
+      results.textContent = "You lose! Rock beats scissors!";
+      computerScore++;
     }
     else if (playerSelection === "scissors" && computerSelection === "paper"){
-        return "You win! Scissors beats Paper!";
+      results.textContent = "You win! Scissors beats paper!";
+      playerScore++;
     }
     else if (playerSelection === "scissors" && computerSelection === "scissors"){
-        return "You tie! Scissors equals Scissors!";
+      results.textContent = "You tie! Scissors equals scissors!";
     }
   }
 
-  function game(){
-    for (let i=0;i<5;i++){
-        let playerSelection = prompt("Enter rock,paper or scissors");
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    }
-  }
 
-  game();
+const scoreHuman = document.querySelector('.score-human');
+const scoreComputer = document.querySelector('.score-computer');
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+const results = document.querySelector('.results');
+
+let playerScore = 0;
+let computerScore = 0;
+scoreHuman.textContent = 'Your score is:' + playerScore;
+scoreComputer.textContent = 'The computers score is' + computerScore;
+
+rock.addEventListener('click', () => {
+    let computerChoice = getComputerChoice();
+    playRound('rock',computerChoice);
+    scoreHuman.textContent = 'Your score is: ' + playerScore;
+    scoreComputer.textContent = 'The computers score is: ' + computerScore;
+});
+
+paper.addEventListener('click', () => {
+  let computerChoice = getComputerChoice();
+  playRound('paper',computerChoice);
+  scoreHuman.textContent = 'Your score is: ' + playerScore;
+  scoreComputer.textContent = 'The computers score is: ' + computerScore;
+});
+
+scissors.addEventListener('click', () => {
+  let computerChoice = getComputerChoice();
+  playRound('scissors',computerChoice);
+  scoreHuman.textContent = 'Your score is: ' + playerScore;
+  scoreComputer.textContent = 'The computers score is: ' + computerScore;
+});
+
+window.onload = (event) => {
+  scoreHuman.textContent = 'Your score is: 0';
+  scoreComputer.textContent = 'The computers score is: 0';
+};
