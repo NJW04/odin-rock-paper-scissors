@@ -7,7 +7,27 @@
 .score-header{
     display: flex;
     justify-content: space-around;
-    margin-bottom: 24px;
     font-size: 24px;
-    background-color: red;
+    background-color: #1F2937;
+    color: white;
+}
+
+.options{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 24px;
+    background-color: #E5E7EB;
+
+}
+
+.options .item{
+    width: 100px;
+    height: 50px;
+    flex: 1;
+}
+
+.results-footer{
+    text-align: center;
+    background-color: #1F2937;
+    color: white;
 }

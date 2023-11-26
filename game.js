@@ -64,6 +64,21 @@ rock.addEventListener('click', () => {
     playRound('rock',computerChoice);
     scoreHuman.textContent = 'Your score is: ' + playerScore;
     scoreComputer.textContent = 'The computers score is: ' + computerScore;
+
+    if (playerScore == 5){
+      alert('Congratulations, you won!');
+      playerScore = 0;
+      computerScore = 0;
+      scoreHuman.textContent = 'Your score is: ' + playerScore;
+      scoreComputer.textContent = 'The computers score is: ' + computerScore;
+
+    }else if (computerScore == 5){
+      alert('Agh sorry, you lost :(');
+      playerScore = 0;
+      computerScore = 0;
+      scoreHuman.textContent = 'Your score is: ' + playerScore;
+      scoreComputer.textContent = 'The computers score is: ' + computerScore;
+    }
 });
 
 paper.addEventListener('click', () => {
@@ -71,6 +86,21 @@ paper.addEventListener('click', () => {
   playRound('paper',computerChoice);
   scoreHuman.textContent = 'Your score is: ' + playerScore;
   scoreComputer.textContent = 'The computers score is: ' + computerScore;
+
+  if (playerScore == 5){
+    alert('Congratulations, you won!');
+    playerScore = 0;
+    computerScore = 0;
+    scoreHuman.textContent = 'Your score is: ' + playerScore;
+    scoreComputer.textContent = 'The computers score is: ' + computerScore;
+
+  }else if (computerScore == 5){
+    alert('Agh sorry, you lost :(');
+    playerScore = 0;
+    computerScore = 0;
+    scoreHuman.textContent = 'Your score is: ' + playerScore;
+    scoreComputer.textContent = 'The computers score is: ' + computerScore;
+  }
 });
 
 scissors.addEventListener('click', () => {
@@ -78,6 +108,21 @@ scissors.addEventListener('click', () => {
   playRound('scissors',computerChoice);
   scoreHuman.textContent = 'Your score is: ' + playerScore;
   scoreComputer.textContent = 'The computers score is: ' + computerScore;
+
+  if (playerScore == 5){
+    alert('Congratulations, you won!');
+    playerScore = 0;
+    computerScore = 0;
+    scoreHuman.textContent = 'Your score is: ' + playerScore;
+    scoreComputer.textContent = 'The computers score is: ' + computerScore;
+
+  }else if (computerScore == 5){
+    alert('Agh sorry, you lost :(');
+    playerScore = 0;
+    computerScore = 0;
+    scoreHuman.textContent = 'Your score is: ' + playerScore;
+    scoreComputer.textContent = 'The computers score is: ' + computerScore;
+  }
 });
 
 window.onload = (event) => {
