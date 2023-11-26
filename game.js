@@ -52,6 +52,7 @@ const scoreComputer = document.querySelector('.score-computer');
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
+const resultFooter = document.querySelector('.results-footer');
 const results = document.querySelector('.results');
 
 let playerScore = 0;
@@ -59,25 +60,40 @@ let computerScore = 0;
 scoreHuman.textContent = 'Your score is:' + playerScore;
 scoreComputer.textContent = 'The computers score is' + computerScore;
 
+
 rock.addEventListener('click', () => {
     let computerChoice = getComputerChoice();
     playRound('rock',computerChoice);
     scoreHuman.textContent = 'Your score is: ' + playerScore;
-    scoreComputer.textContent = 'The computers score is: ' + computerScore;
+    scoreComputer.textContent = 'My score is: ' + computerScore;
 
     if (playerScore == 5){
-      alert('Congratulations, you won!');
-      playerScore = 0;
-      computerScore = 0;
-      scoreHuman.textContent = 'Your score is: ' + playerScore;
-      scoreComputer.textContent = 'The computers score is: ' + computerScore;
-
+      results.textContent = 'Game Over! You won!';
+      const replayButton = document.createElement('button');
+      replayButton.textContent = 'Click me to play again';
+      resultFooter.appendChild(replayButton);
+      disableButtons();
+      replayButton.addEventListener('click', () => {
+        playerScore = 0;
+        computerScore = 0;
+        updateScores();
+        resultFooter.removeChild(replayButton);
+        enableButtons();
+      });
+  
     }else if (computerScore == 5){
-      alert('Agh sorry, you lost :(');
-      playerScore = 0;
-      computerScore = 0;
-      scoreHuman.textContent = 'Your score is: ' + playerScore;
-      scoreComputer.textContent = 'The computers score is: ' + computerScore;
+      results.textContent = 'Game Over! You lost!';
+      const replayButton = document.createElement('button');
+      replayButton.textContent = 'Click me to play again';
+      resultFooter.appendChild(replayButton);
+      disableButtons();
+      replayButton.addEventListener('click', () => {
+        playerScore = 0;
+        computerScore = 0;
+        updateScores();
+        resultFooter.removeChild(replayButton);
+        enableButtons();
+      });
     }
 });
 
@@ -85,21 +101,35 @@ paper.addEventListener('click', () => {
   let computerChoice = getComputerChoice();
   playRound('paper',computerChoice);
   scoreHuman.textContent = 'Your score is: ' + playerScore;
-  scoreComputer.textContent = 'The computers score is: ' + computerScore;
+  scoreComputer.textContent = 'My score is: ' + computerScore;
 
   if (playerScore == 5){
-    alert('Congratulations, you won!');
-    playerScore = 0;
-    computerScore = 0;
-    scoreHuman.textContent = 'Your score is: ' + playerScore;
-    scoreComputer.textContent = 'The computers score is: ' + computerScore;
+    results.textContent = 'Game Over! You won!';
+    const replayButton = document.createElement('button');
+    replayButton.textContent = 'Click me to play again';
+    resultFooter.appendChild(replayButton);
+    disableButtons();
+    replayButton.addEventListener('click', () => {
+      playerScore = 0;
+      computerScore = 0;
+      updateScores();
+      resultFooter.removeChild(replayButton);
+      enableButtons();
+    });
 
   }else if (computerScore == 5){
-    alert('Agh sorry, you lost :(');
-    playerScore = 0;
-    computerScore = 0;
-    scoreHuman.textContent = 'Your score is: ' + playerScore;
-    scoreComputer.textContent = 'The computers score is: ' + computerScore;
+    results.textContent = 'Game Over! You lost!';
+    const replayButton = document.createElement('button');
+    replayButton.textContent = 'Click me to play again';
+    resultFooter.appendChild(replayButton);
+    disableButtons();
+    replayButton.addEventListener('click', () => {
+      playerScore = 0;
+      computerScore = 0;
+      updateScores();
+      resultFooter.removeChild(replayButton);
+      enableButtons();
+    });
   }
 });
 
@@ -107,25 +137,62 @@ scissors.addEventListener('click', () => {
   let computerChoice = getComputerChoice();
   playRound('scissors',computerChoice);
   scoreHuman.textContent = 'Your score is: ' + playerScore;
-  scoreComputer.textContent = 'The computers score is: ' + computerScore;
+  scoreComputer.textContent = 'My score is: ' + computerScore;
 
   if (playerScore == 5){
-    alert('Congratulations, you won!');
-    playerScore = 0;
-    computerScore = 0;
-    scoreHuman.textContent = 'Your score is: ' + playerScore;
-    scoreComputer.textContent = 'The computers score is: ' + computerScore;
+    results.textContent = 'Game Over! You won!';
+    const replayButton = document.createElement('button');
+    replayButton.textContent = 'Click me to play again';
+    resultFooter.appendChild(replayButton);
+    disableButtons();
+    replayButton.addEventListener('click', () => {
+      playerScore = 0;
+      computerScore = 0;
+      updateScores();
+      resultFooter.removeChild(replayButton);
+      enableButtons();
+    });
 
   }else if (computerScore == 5){
-    alert('Agh sorry, you lost :(');
-    playerScore = 0;
-    computerScore = 0;
-    scoreHuman.textContent = 'Your score is: ' + playerScore;
-    scoreComputer.textContent = 'The computers score is: ' + computerScore;
+    results.textContent = 'Game Over! You lost!';
+    const replayButton = document.createElement('button');
+    replayButton.textContent = 'Click me to play again';
+    resultFooter.appendChild(replayButton);
+    disableButtons();
+    replayButton.addEventListener('click', () => {
+      playerScore = 0;
+      computerScore = 0;
+      updateScores();
+      resultFooter.removeChild(replayButton);
+      enableButtons();
+    });
   }
 });
 
 window.onload = (event) => {
   scoreHuman.textContent = 'Your score is: 0';
-  scoreComputer.textContent = 'The computers score is: 0';
+  scoreComputer.textContent = 'My score is: 0';
 };
+
+function updateScores(){
+  scoreHuman.textContent = 'Your score is: ' + playerScore;
+  scoreComputer.textContent = 'My score is: ' + computerScore;
+  results.textContent = "I will display the results of the game...";
+}
+
+function disableButtons(){
+  const buttons = document.querySelectorAll('.item');
+  let arrayButtons = Array.from(buttons);
+  for (const element of arrayButtons) {
+    element.disabled = true;
+  }
+}
+
+function enableButtons(){
+  const buttons = document.querySelectorAll('.item');
+  let arrayButtons = Array.from(buttons);
+  for (const element of arrayButtons) {
+    element.disabled = false;
+  }
+}
+
